@@ -5,10 +5,18 @@ export const metadata = {
   description: "Learn next.js router",
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({
+  children,
+  retailer,
+  visitor,
+}: {
+  children: ReactNode;
+  retailer: ReactNode;
+  visitor: ReactNode;
+}) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>{visitor}</body>
     </html>
   );
 }
