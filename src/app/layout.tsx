@@ -1,23 +1,30 @@
 import { ReactNode } from "react";
 
-export const metadata = {
-  title: "Learn next.js router",
-  description: "Learn next.js router",
-};
-
-export default function RootLayout({
+export default function Layout({
   children,
-  retailer,
-  visitor,
+  a,
+  b,
 }: {
   children: ReactNode;
-  retailer: ReactNode;
-  visitor: ReactNode;
+  a: ReactNode;
+  b: ReactNode;
 }) {
   return (
     <html lang="en">
-      <h1>ROOT</h1>
-      <body>{visitor}</body>
+      <div>
+        <h1>children</h1>
+        {children}
+      </div>
+
+      <div>
+        <h1>a</h1>
+        {a}
+      </div>
+
+      <div>
+        <h1>b</h1>
+        {b}
+      </div>
     </html>
   );
 }
