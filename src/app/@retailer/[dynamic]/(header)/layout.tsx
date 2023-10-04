@@ -1,10 +1,10 @@
 import { ReactNode } from "react";
 
 export default function Layout({ children }: { children: ReactNode }) {
-  console.log("layout for logged in header group is used");
+  console.log("layout for logged in dynamic header is used");
   return (
     <>
-      <header>Header (For Logged-In Users Only)</header>
+      <header>HEADER | /[dynamic]/(header)/layout.tsx</header>
       {children}
     </>
   );
