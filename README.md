@@ -1,22 +1,31 @@
-# learn-router
-test behaviours of next.js using some examples
+## Setup
+
+Suppose root layout renders parallel routes back to back, where one route
+matches a dynamic route from parallel route `@a` and the other matches a
+catch-all route from parallel route `@b`.
 
 ```
 └── app
-    ├── @retailer
-    │   └── (header)
-    │       ├── about
-    │       │   └── page.tsx
-    │       └── layout.tsx
-    ├── @visitor
-    │   └── about
-    │       └── page.tsx
+    ├── @a
+    │   ├── [dynamic]
+    │   │   └── page.tsx
+    │   └── page.tsx
+    ├── @b
+    │   ├── [...catchAll]
+    │   │   └── page.tsx
+    │   └── page.tsx
     ├── layout.tsx
     └── page.tsx
 ```
 
-The root layout will always render `@visitor` parallel route and discard `@retailer`.
-However, when you navigate to `/about`, you can see that `/@retailer/(header)/layout.tsx` and
-`/@retailer/(header)/about/page.tsx` is executed by looking at the `console.log`s.
+## Problem
 
-![CleanShot 2023-10-04 at 12 52 33@2x](https://github.com/gaojude/learn-router/assets/32973745/fa087eec-dae3-4229-9437-fef0e43ee952)
+When you have a parallel routes where one route matches a dynamic route and
+the other matches a catch-all route, the dynamic route will be executed, but
+neither will be rendered.
+
+## Steps
+
+Run this example using `npm run dev` and navigate to `/abc` and `/abc/def`, and
+you will see that the dynamic route is executed (by checking the console),
+but neither is rendered.
